@@ -69,7 +69,6 @@ Many Events can be held by one Staff member, but each Event can only be held by 
 Logical model for the Dormitory Manager database. Here is a list of the tables with their attributes and relationships:
 
 Student table
-
 student_id (PK, int)
 name (text)
 gender (text)
@@ -86,46 +85,48 @@ capacity (int)
 occupied (text)
 
 Payments table
-
 payment_id (PK, int)
 student_id (FK, int)
 payment_date (date)
 amount_paid (int)
-Staff table
 
+
+Staff table
 staff_id (PK, int)
 name (text)
 position (text)
 phone_number (int)
 email (text)
-Visitors table
 
+
+Visitors table
 visitor_id (PK, int)
 visitor_name (text)
 contact_number (int)
 email (text)
 arrival_time (datetime)
 student_id (FK, int)
-Inventory table
 
+Inventory table
 item_id (PK, int)
 item_name (text)
 quantity (int)
 room_number (FK, int)
-Events table
 
+Events table
 event_id (PK, int)
 name (text)
 date (datetime)
 room_number (FK, int)
 staff_id (FK, int)
 description (text)
-Documents table
 
+Documents table
 document_id (PK, int)
 document_name (text)
 document_type (text)
 student_id (FK, int)
+
 In the logical model, we have added primary keys and foreign keys to establish relationships between tables. The student table has a one-to-many relationship with the room table, payments table, visitors table, and documents table.
 
 3. Physical model
