@@ -1,53 +1,32 @@
 # Database-project
 
+
+![image](https://user-images.githubusercontent.com/107505638/232611452-72b513fe-2bab-4e1a-bde6-4affa478b998.png)
+
+
 1. Conceptual model
-Based on the provided database schema, the conceptual model can be represented using an entity-relationship diagram (ERD) as follows:
-                              +---------------+
-                              |   Room        |
-                              +---------------+
-                              | room_number   |
-                              | room_type     |
-                              | capacity      |
-                              | occupied      |
-                              +---------------+
-                                      1
-                                      |
-                                      n
-+---------------+            +----------------+            +-----------------+
-|   Student     |            |   Payments     |            |     Visitors     |
-+---------------+            +----------------+            +-----------------+
-| student_id    |1-----n|    | payment_id     |1-----n|    | visitor_id      |
-| name          |       |    | student_id (FK)|       |    | visitor_name   |
-| gender        |       |    | payment_date  |       |    | contact_number |
-| room_number   |-------+    | amount_paid   |       |    | email          |
-| phone_number  |            +----------------+       |    | arrival_time   |
-| email         |                                      |    | student_id (FK)|
-| dob           |                                      +-----------------+
-| enrollment_date|                                               1
-+---------------+                                               |
-                                                                 n
-                             +----------------+             +----------------+
-                             |    Staff       |             |    Inventory   |
-                             +----------------+             +----------------+
-                             | staff_id       |             | item_id        |
-                             | name           |             | item_name      |
-                             | position       |             | quantity       |
-                             | phone_number   |             | room_number (FK)|
-                             | email          |             +----------------+
-                             +----------------+                
-                                       1
-                                       |
-                                       n
-                               +----------------+
-                               |    Events      |
-                               +----------------+
-                               | id             |
-                               | name           |
-                               | date           |
-                               | room_number (FK)|
-                               | staff_id (FK)  |
-                               | description    |
-                               +----------------+
+# Dormitory Manager Conceptual Model
+
+## Entities
+
+- Student
+- Room
+- Payments
+- Staff
+- Visitors
+- Inventory
+- Events
+- Documents
+
+## Relationships
+
+- Student{1..n} - live in - {1}Room
+- Student{1} - pay - {1..n}Payments
+- Visitors{1..n} - visit - {1..n}Room
+- Events{1..n} - be held - {1}Room
+- Student{1} -- {1..n}Documents
+- Inventory{1..n} -- {1}Room
+- Events{1..n} - be held by - {1}Staff
 
 Explaining the relationships between the entities in the conceptual model for this database scheme:
 
