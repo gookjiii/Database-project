@@ -69,6 +69,7 @@ Many Events can be held by one Staff member, but each Event can only be held by 
 Logical model for the Dormitory Manager database. Here is a list of the tables with their attributes and relationships:
 
 Student table
+
 student_id (PK, int)
 name (text)
 gender (text)
@@ -77,6 +78,7 @@ phone_number (int)
 email (text)
 dob (date)
 enrollment_date (date)
+
 Room table
 
 room_number (PK, int)
@@ -85,6 +87,7 @@ capacity (int)
 occupied (text)
 
 Payments table
+
 payment_id (PK, int)
 student_id (FK, int)
 payment_date (date)
@@ -92,6 +95,7 @@ amount_paid (int)
 
 
 Staff table
+
 staff_id (PK, int)
 name (text)
 position (text)
@@ -100,6 +104,7 @@ email (text)
 
 
 Visitors table
+
 visitor_id (PK, int)
 visitor_name (text)
 contact_number (int)
@@ -108,12 +113,14 @@ arrival_time (datetime)
 student_id (FK, int)
 
 Inventory table
+
 item_id (PK, int)
 item_name (text)
 quantity (int)
 room_number (FK, int)
 
 Events table
+
 event_id (PK, int)
 name (text)
 date (datetime)
@@ -122,6 +129,7 @@ staff_id (FK, int)
 description (text)
 
 Documents table
+
 document_id (PK, int)
 document_name (text)
 document_type (text)
