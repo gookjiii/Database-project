@@ -84,6 +84,7 @@ room_number (PK, int)
 room_type (text)
 capacity (int)
 occupied (text)
+
 Payments table
 
 payment_id (PK, int)
@@ -175,3 +176,36 @@ In the logical model, we have added primary keys and foreign keys to establish r
 | arrival_time      | datetime   | NO   |     | NULL    |                 |
 | student_id        | int        | NO   | MUL | NULL    |                 |
 
+## Inventory
+| Column Name | Data Type | Constraints              |
+|-------------|-----------|--------------------------|
+| item_id     | int       | PRIMARY KEY              |
+| item_name   | text      | NOT NULL                 |
+| quantity    | int       | NOT NULL                 |
+| room_number | int       | FOREIGN KEY (Room)        |
+
+## Events
+| Column Name | Data Type | Constraints               |
+|-------------|-----------|---------------------------|
+| id          | int       | PRIMARY KEY               |
+| name        | text      | NOT NULL                  |
+| date        | datetime  | NOT NULL                  |
+| room_number | int       | FOREIGN KEY (Room)         |
+| staff_id    | int       | FOREIGN KEY (Staff)        |
+| description | text      | NOT NULL                  |
+
+## Documents
+| Column Name  | Data Type | Constraints              |
+|--------------|-----------|--------------------------|
+| document_id  | int       | PRIMARY KEY              |
+| document_name| text      | NOT NULL                 |
+| document_type| text      | NOT NULL                 |
+| student_id   | int       | FOREIGN KEY (Student)     |
+
+## Payments
+| Column Name | Data Type | Constraints              |
+|-------------|-----------|--------------------------|
+| payment_id  | int       | PRIMARY KEY              |
+| student_id  | int       | FOREIGN KEY (Student)     |
+| payment_date| date      | NOT NULL                 |
+| amount_paid | int       | NOT NULL                 |
