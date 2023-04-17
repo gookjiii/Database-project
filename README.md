@@ -128,60 +128,74 @@ student_id (FK, int)
 In the logical model, we have added primary keys and foreign keys to establish relationships between tables. The student table has a one-to-many relationship with the room table, payments table, visitors table, and documents table.
 
 3. Physical model
-Student
-Column Name	Data Type	Primary Key	Foreign Key
-student_id	int	Yes	
-name	text		
-gender	text		
-room_number	int		Room(room_number)
-phone_number	int		
-email	text		
-dob	date		
-enrollment_date	date		
-Room
-Column Name	Data Type	Primary Key	Foreign Key
-room_number	int	Yes	
-room_type	text		
-capacity	text		
-occupied	text		
-Payments
-Column Name	Data Type	Primary Key	Foreign Key
-payment_id	int	Yes	
-student_id	int		Student(student_id)
-payment_date	date		
-amount_paid	int		
-Staff
-Column Name	Data Type	Primary Key	Foreign Key
-staff_id	int	Yes	
-name	text		
-position	text		
-phone_number	int		
-email	text		
-Visitors
-Column Name	Data Type	Primary Key	Foreign Key
-visitor_id	int	Yes	
-visitor_name	text		
-contact_number	int		
-email	text		
-arrival_time	datetime		
-student_id	int		Student(student_id)
-Inventory
-Column Name	Data Type	Primary Key	Foreign Key
-item_id	int	Yes	
-item_name	text		
-quantity	int		
-room_number	int		Room(room_number)
-Events
-Column Name	Data Type	Primary Key	Foreign Key
-id	int	Yes	
-name	text		
-date	datetime		
-room_number	int		Room(room_number)
-staff_id	int		Staff(staff_id)
-description	text		
-Documents
-Column Name	Data Type	Primary Key	Foreign Key
-document_id	int	Yes	
-document_name	text		
-document_type	text		
-student_id	int		Student(student_id)
+CREATE TABLE Student (
+    student_id INT PRIMARY KEY,
+    name TEXT,
+    gener TEXT,
+    room_number INT,
+    phone_number INT,
+    email TEXT,
+    dob DATE,
+    enrollment_date DATE
+);
+
+CREATE TABLE Room (
+    room_number INT PRIMARY KEY,
+    room_type TEXT,
+    capacity TEXT,
+    occupied TEXT
+);
+
+CREATE TABLE Payments (
+    payment_id INT PRIMARY KEY,
+    student_id INT,
+    payment_date DATE,
+    amount_paid INT,
+    FOREIGN KEY (student_id) REFERENCES Student(student_id)
+);
+
+CREATE TABLE Staff (
+    staff_id INT PRIMARY KEY,
+    name TEXT,
+    position TEXT,
+    phone_number INT,
+    email TEXT
+);
+
+CREATE TABLE Visitors (
+    visitor_id INT PRIMARY KEY,
+    visitor_name TEXT,
+    contact_number INT,
+    email TEXT,
+    arrival_time DATETIME,
+    student_id INT,
+    FOREIGN KEY (student_id) REFERENCES Student(student_id)
+);
+
+CREATE TABLE Inventory (
+    item_id INT PRIMARY KEY,
+    item_name TEXT,
+    quantity INT,
+    room_number INT,
+    FOREIGN KEY (room_number) REFERENCES Room(room_number)
+);
+
+CREATE TABLE Events (
+    id INT PRIMARY KEY,
+    name TEXT,
+    date DATETIME,
+    room_number INT,
+    staff_id INT,
+    description TEXT,
+    FOREIGN KEY (room_number) REFERENCES Room(room_number),
+    FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
+);
+
+CREATE TABLE Documents (
+    document_id INT PRIMARY KEY,
+    document_name TEXT,
+    document_type TEXT,
+    student_id INT,
+    FOREIGN KEY (student_id) REFERENCES Student(student_id)
+);
+
