@@ -128,74 +128,50 @@ student_id (FK, int)
 In the logical model, we have added primary keys and foreign keys to establish relationships between tables. The student table has a one-to-many relationship with the room table, payments table, visitors table, and documents table.
 
 3. Physical model
-CREATE TABLE Student (
-    student_id INT PRIMARY KEY,
-    name TEXT,
-    gener TEXT,
-    room_number INT,
-    phone_number INT,
-    email TEXT,
-    dob DATE,
-    enrollment_date DATE
-);
+## Student
+| Field             | Type       | Null | Key | Default | Extra          |
+|-------------------|------------|-------|-----|---------|-----------------|
+| student_id         | int        | NO   | PRI | NULL    | auto_increment |
+| name              | text       | NO   |     | NULL    |                 |
+| gender            | text       | NO   |     | NULL    |                 |
+| room_number       | int        | NO   | MUL | NULL    |                 |
+| phone_number      | int        | NO   |     | NULL    |                 |
+| email             | text       | NO   |     | NULL    |                 |
+| dob               | date       | NO   |     | NULL    |                 |
+| enrollment_date   | date       | NO   |     | NULL    |                 |
 
-CREATE TABLE Room (
-    room_number INT PRIMARY KEY,
-    room_type TEXT,
-    capacity TEXT,
-    occupied TEXT
-);
+## Room
+| Field             | Type       | Null | Key | Default | Extra          |
+|-------------------|------------|-------|-----|---------|-----------------|
+| room_number       | int        | NO   | PRI | NULL    | auto_increment |
+| room_type         | text       | NO   |     | NULL    |                 |
+| capacity          | int        | NO   |     | NULL    |                 |
+| occupied          | text       | NO   |     | NULL    |                 |
 
-CREATE TABLE Payments (
-    payment_id INT PRIMARY KEY,
-    student_id INT,
-    payment_date DATE,
-    amount_paid INT,
-    FOREIGN KEY (student_id) REFERENCES Student(student_id)
-);
+## Payments
+| Field             | Type       | Null | Key | Default | Extra          |
+|-------------------|------------|-------|-----|---------|-----------------|
+| payment_id        | int        | NO   | PRI | NULL    | auto_increment |
+| student_id        | int        | NO   | MUL | NULL    |                 |
+| payment_date      | date       | NO   |     | NULL    |                 |
+| amount_paid       | int        | NO   |     | NULL    |                 |
 
-CREATE TABLE Staff (
-    staff_id INT PRIMARY KEY,
-    name TEXT,
-    position TEXT,
-    phone_number INT,
-    email TEXT
-);
+## Staff
+| Field             | Type       | Null | Key | Default | Extra          |
+|-------------------|------------|-------|-----|---------|-----------------|
+| staff_id          | int        | NO   | PRI | NULL    | auto_increment |
+| name              | text       | NO   |     | NULL    |                 |
+| position          | text       | NO   |     | NULL    |                 |
+| phone_number      | int        | NO   |     | NULL    |                 |
+| email             | text       | NO   |     | NULL    |                 |
 
-CREATE TABLE Visitors (
-    visitor_id INT PRIMARY KEY,
-    visitor_name TEXT,
-    contact_number INT,
-    email TEXT,
-    arrival_time DATETIME,
-    student_id INT,
-    FOREIGN KEY (student_id) REFERENCES Student(student_id)
-);
-
-CREATE TABLE Inventory (
-    item_id INT PRIMARY KEY,
-    item_name TEXT,
-    quantity INT,
-    room_number INT,
-    FOREIGN KEY (room_number) REFERENCES Room(room_number)
-);
-
-CREATE TABLE Events (
-    id INT PRIMARY KEY,
-    name TEXT,
-    date DATETIME,
-    room_number INT,
-    staff_id INT,
-    description TEXT,
-    FOREIGN KEY (room_number) REFERENCES Room(room_number),
-    FOREIGN KEY (staff_id) REFERENCES Staff(staff_id)
-);
-
-CREATE TABLE Documents (
-    document_id INT PRIMARY KEY,
-    document_name TEXT,
-    document_type TEXT,
-    student_id INT,
-    FOREIGN KEY (student_id) REFERENCES Student(student_id)
-);
+## Visitors
+| Field             | Type       | Null | Key | Default | Extra          |
+|-------------------|------------|-------|-----|---------|-----------------|
+| visitor_id        | int        | NO   | PRI | NULL    | auto_increment |
+| visitor_name      | text       | NO   |     | NULL    |                 |
+| contact_number    | int        | NO   |     | NULL    |                 |
+| email             | text       | NO   |     | NULL    |                 |
+| arrival_time      | datetime   | NO   |     | NULL    |                 |
+| student_id        | int        | NO   | MUL | NULL    |                 |
 
