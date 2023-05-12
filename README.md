@@ -1,9 +1,9 @@
 # Database-project
-1. Conceptual model
-# Dormitory Manager Conceptual Model
+# 1. Conceptual model
+## Dormitory Manager Conceptual Model
 ![image](https://user-images.githubusercontent.com/107505638/232611452-72b513fe-2bab-4e1a-bde6-4affa478b998.png)
 
-## Entities
+### Entities
 
 - Student
 - Room
@@ -14,7 +14,7 @@
 - Events
 - Documents
 
-## Relationships
+### Relationships
 
 - Student{1..n} - live in - {1}Room
 - Student{1} - pay - {1..n}Payments
@@ -40,8 +40,9 @@ Many Inventory items can be located in one Room, but each Inventory item can onl
 
 Many Events can be held by one Staff member, but each Event can only be held by one Staff member. This is a one-to-many relationship between Staff and Events.
 
-2. Logical model
-Logical model for the Dormitory Manager database. Here is a list of the tables with their attributes and relationships:
+# 2. Logical model
+
+## Logical model for the Dormitory Manager database. Here is a list of the tables with their attributes and relationships:
 
 Student table
 
@@ -112,7 +113,7 @@ student_id (FK, int)
 
 In the logical model, we have added primary keys and foreign keys to establish relationships between tables. The student table has a one-to-many relationship with the room table, payments table, visitors table, and documents table.
 
-3. Physical model
+# 3. Physical model
 ## Student
 | Field             | Type       | Null | Key | Default | Extra          |
 |-------------------|------------|-------|-----|---------|-----------------|
