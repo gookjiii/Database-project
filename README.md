@@ -1,11 +1,7 @@
 # Database-project
-
-
-![image](https://user-images.githubusercontent.com/107505638/232611452-72b513fe-2bab-4e1a-bde6-4affa478b998.png)
-
-
 1. Conceptual model
 # Dormitory Manager Conceptual Model
+![image](https://user-images.githubusercontent.com/107505638/232611452-72b513fe-2bab-4e1a-bde6-4affa478b998.png)
 
 ## Entities
 
