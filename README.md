@@ -1,13 +1,9 @@
 # Database-project
-
-
+# 1. Conceptual model
+## Dormitory Manager Conceptual Model
 ![image](https://user-images.githubusercontent.com/107505638/232611452-72b513fe-2bab-4e1a-bde6-4affa478b998.png)
 
-
-1. Conceptual model
-# Dormitory Manager Conceptual Model
-
-## Entities
+### Entities
 
 - Student
 - Room
@@ -18,7 +14,7 @@
 - Events
 - Documents
 
-## Relationships
+### Relationships
 
 - Student{1..n} - live in - {1}Room
 - Student{1} - pay - {1..n}Payments
@@ -44,79 +40,80 @@ Many Inventory items can be located in one Room, but each Inventory item can onl
 
 Many Events can be held by one Staff member, but each Event can only be held by one Staff member. This is a one-to-many relationship between Staff and Events.
 
-2. Logical model
-Logical model for the Dormitory Manager database. Here is a list of the tables with their attributes and relationships:
+# 2. Logical model
+
+## Logical model for the Dormitory Manager database. Here is a list of the tables with their attributes and relationships:
 
 Student table
 
-student_id (PK, int)
-name (text)
-gender (text)
-room_number (int, FK)
-phone_number (int)
-email (text)
-dob (date)
-enrollment_date (date)
+- student_id (PK, int)
+- name (text)
+- gender (text)
+- room_number (int, FK)
+- phone_number (int)
+- email (text)
+- dob (date)
+- enrollment_date (date)
 
 Room table
 
-room_number (PK, int)
-room_type (text)
-capacity (int)
-occupied (text)
+- room_number (PK, int)
+- room_type (text)
+- capacity (int)
+- occupied (text)
 
 Payments table
 
-payment_id (PK, int)
-student_id (FK, int)
-payment_date (date)
-amount_paid (int)
+- payment_id (PK, int)
+- student_id (FK, int)
+- payment_date (date)
+- amount_paid (int)
 
 
 Staff table
 
-staff_id (PK, int)
-name (text)
-position (text)
-phone_number (int)
-email (text)
+- staff_id (PK, int)
+- name (text)
+- position (text)
+- phone_number (int)
+- email (text)
 
 
 Visitors table
 
-visitor_id (PK, int)
-visitor_name (text)
-contact_number (int)
-email (text)
-arrival_time (datetime)
-student_id (FK, int)
+- visitor_id (PK, int)
+- visitor_name (text)
+- contact_number (int)
+- email (text)
+- arrival_time (datetime)
+- student_id (FK, int)
 
 Inventory table
 
-item_id (PK, int)
-item_name (text)
-quantity (int)
-room_number (FK, int)
+- item_id (PK, int)
+- item_name (text)
+- quantity (int)
+- room_number (FK, int)
 
 Events table
 
-event_id (PK, int)
-name (text)
-date (datetime)
-room_number (FK, int)
-staff_id (FK, int)
-description (text)
+- event_id (PK, int)
+- name (text)
+- date (datetime)
+- room_number (FK, int)
+- staff_id (FK, int)
+- description (text)
 
 Documents table
 
-document_id (PK, int)
-document_name (text)
-document_type (text)
-student_id (FK, int)
+- document_id (PK, int)
+- document_name (text)
+- document_type (text)
+- student_id (FK, int)
 
 In the logical model, we have added primary keys and foreign keys to establish relationships between tables. The student table has a one-to-many relationship with the room table, payments table, visitors table, and documents table.
 
-3. Physical model
+# 3. Physical model
 ## Student
 | Field             | Type       | Null | Key | Default | Extra          |
 |-------------------|------------|-------|-----|---------|-----------------|
